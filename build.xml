@@ -1,0 +1,28 @@
+<project name="customHtmlEncoder" default="build" basedir=".">
+  <property name="build.output" value="target/classes"/>
+  <property name="build.directory" value="target"/>
+  <property name="build.final.name" value="customHtmlEncoder"/>
+  <path id="build.classpath">
+    <fileset dir="lib">
+      <include name="*.jar" />
+    </fileset>
+  </path>
+  
+  <target name="fullbuild" depends="clean,build,jar" />
+  <target name="build">
+    <javac destdir="${build.output}" excludes="**/package.html" debug="true" deprecation="true" optimize="false" target="1.6" encoding="UTF-8">
+      <src>
+        <pathelement location="src"/>
+      </src>
+      <classpath refid="build.classpath"/>
+    </javac>
+  </target>
+  <target name="clean">
+    <delete dir="${build.output}"/>
+    <mkdir dir="${build.output}"/>
+    <delete file="${build.directory}/${build.final.name}.jar"/>
+  </target>
+  <target name="jar" depends="build">
+    <jar jarfile="${build.directory}/${build.final.name}.jar" basedir="${build.output}" excludes="**/package.html"/>
+  </target>
+</project>
