@@ -1,13 +1,12 @@
 package org.apache.solr.highlight;
 
 import org.apache.lucene.search.highlight.Encoder;
-import org.apache.lucene.search.highlight.SimpleHTMLEncoder;
 import org.apache.solr.common.params.SolrParams;
 
 public class HtmlEncoder2 extends HtmlEncoder {
 
   public Encoder getEncoder(String fieldName, SolrParams params) {
-    return new SimpleHTMLEncoder() {
+    return new Encoder() {
       public String encodeText(String originalText) {
         if (originalText == null || originalText.length() == 0) {
           return "";
