@@ -1,5 +1,5 @@
 Solr3.1のHighlighterで非ASCII文字を数値文字参照にしないためのHtmlEncoderの実装です。
-Javaのバージョンは1.6ですが、1.5でもjavacのtargetを1.5にして再ビルドすれば動くはずです。（試してないですが・・）
+Javaのバージョンは1.6ですが、1.5でもjavacのtargetを1.5にして再ビルドすれば動くはずです。
 
 【使い方】
 targetディレクトリのcustomHtmlEncoder.jarを任意の場所に保存して、
@@ -22,3 +22,5 @@ Solrを立ち上げてhighlight箇所が数値文字参照になっていない�
 ant fullbuild
 とすればコンパイルしてjarまで作成されます。
 
+【ライセンス】
+Apache License, Version 2.0
